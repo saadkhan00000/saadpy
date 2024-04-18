@@ -1,1 +1,127 @@
+code 1
+Sequence
+import re
+target_str = "Jessy and Kelly!!"
+result = re.findall(r"\w", target_str)
+print(result)
+result = re.findall(r"\w{5}", target_str)
+print(result)
+result = re.findall(r"\W", target_str)
+print(result)
+target_str = "Jessa \t \n"
+result = re.findall(r"\s", target_str)
+print(result)
+result = re.split(r"\s+", "Jessa and Kelly")
+print(result)
+result = re.sub(r"\s+"," ","Jessa and \t \t kelly")
+print(result)
+txt = "The train in India"
+x = re.findall(r"\Bain", txt)
+y = re.findall(r"\bain", txt)
+print(x)
+print(y)
+if x:
+    print("Yes, there is an one match for x")
+else:
+    print("No, match found for x")
+if y:
+    print("Yes, there is an one match for y")
+else:
+    print("No, match found for y")
 
+code 2
+Special
+import re
+s = "Learning python is easy"
+res = re.search ("^Fast", s)
+if res!=None:
+    print("Target string starts with Fast")
+else:
+    print("Target string not starts with fast")
+
+def allowed(string):
+    char_re = re.compile(r'[^a-zA-Z0-9.]')
+    string = char_re.search(string)
+    return not bool(string)
+print(allowed("ABCDEFabcdef123450"))
+print(allowed("*&%@#!}{"))
+items = ['lovely', '1\ndenstist','2 lonely','eden','fly\n','dent']
+p = [e for e in items if re.search(r'\Aden|ly\Z', e)]
+print(p)
+
+
+code3
+Date function
+import datetime
+current_time = datetime.datetime.now()
+print("current time: ",current_time)
+print("Year: ", end ="")
+print(current_time.year)
+print("Month: ", end="")
+print(current_time.month)
+print("Day: ", end="")
+print(current_time.day)
+print("Hour: ", end="")
+print(current_time.hour)
+print("Minute: ", end="")
+print(current_time.minute)
+print("Second: ", end="")
+print(current_time.second)
+print("Microsecond: ", end="")
+print(current_time.microsecond)
+from datetime import date
+today = date.today()
+print("Today data is: ", today)
+from datetime import datetime
+time = datetime.now().time()
+print("Current Time = ", time)
+from datetime import *
+dt1 = datetime(year = 2022, month=1, day=1, hour=11, minute = 30, second = 10)
+print(dt1)
+dt2 = dt1.replace(year=2021, hour = 20, month=12)
+print(dt2)
+from datetime import datetime
+now = datetime.now()
+year = now.strftime("%Y")
+print("Year: ", year)
+month = now.strftime("%m")
+print("Month: ", month)
+day = now.strftime("%d")
+print("Day: ", day)
+time = now.strftime("%H:%M:%S")
+print("time:", time)
+date_time = now.strftime("%m %d %Y, %H:%M:%S")
+print("date and time: ",date_time)
+
+code 4
+Calender
+import calendar
+yy = 2022
+mm = 1
+print(calendar.month(yy,mm))
+print("The calender of year 2021 is: ")
+print(calendar.calendar(2021, 2, 1, 6))
+
+code 5
+Exception handling
+"""ye zero ZeroDivision handling hai"""
+try:
+    x = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+    
+try:
+    x = 10 / 2
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+else:
+    print("Result: ",x)
+finally:
+    print("Finally block executed")
+
+"""ye type error handling hai"""
+try:
+   
+    result = "Hello, " + 123
+except TypeError as e:
+    print("TypeError occurred: ",e)
