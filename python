@@ -29,6 +29,9 @@ if y:
 else:
     print("No, match found for y")
 
+
+
+
 code 2
 Special
 import re
@@ -48,6 +51,8 @@ print(allowed("*&%@#!}{"))
 items = ['lovely', '1\ndenstist','2 lonely','eden','fly\n','dent']
 p = [e for e in items if re.search(r'\Aden|ly\Z', e)]
 print(p)
+
+
 
 
 code3
@@ -93,6 +98,8 @@ print("time:", time)
 date_time = now.strftime("%m %d %Y, %H:%M:%S")
 print("date and time: ",date_time)
 
+
+
 code 4
 Calender
 import calendar
@@ -101,6 +108,12 @@ mm = 1
 print(calendar.month(yy,mm))
 print("The calender of year 2021 is: ")
 print(calendar.calendar(2021, 2, 1, 6))
+
+
+
+
+
+
 
 code 5
 Exception handling
@@ -125,3 +138,64 @@ try:
     result = "Hello, " + 123
 except TypeError as e:
     print("TypeError occurred: ",e)
+
+
+
+
+
+code 6
+Abstraction
+"""example 1"""
+from abc import ABC, abstractmethod
+class Bank(ABC):
+    def bank_info(self):
+        print("Welcome to bank")
+    @abstractmethod
+    def interest(self):
+        "Abstract method"
+        pass
+class HDFC(Bank):
+    def interest(self):
+        "Implementation of abstract method"
+        print("In HDFC bank 6 rupees interest")
+
+s = HDFC()
+s.bank_info()
+s.interest
+
+"""Example 2"""
+
+from abc import ABC, abstractmethod
+
+class Car(ABC):
+    @abstractmethod
+    def mileage(self):
+        pass
+
+class Tesla(Car):
+    def mileage(self):
+        print("The mileage is 30kmph")
+
+class Suzuki(Car):
+    def mileage(self):
+        print("The mileage is 25kmph")
+
+class Duster(Car):
+    def mileage(self):
+        print("The mileage is 24kmph")
+
+class Renault(Car):
+    def mileage(self):
+        print("The mileage is 27kmph")
+
+t = Tesla()
+t.mileage()
+
+r = Renault()
+r.mileage()
+
+s = Suzuki()
+s.mileage()
+
+d = Duster()
+d.mileage()
